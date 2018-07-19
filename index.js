@@ -10,8 +10,6 @@ var querystring = require('querystring');
 let request = require('request')
 var cloudinary = require('cloudinary');
 
-const port = process.env.port || 3000;
-
 const app = express();
 
 app.use(bp.json({ limit: '50mb' }));
@@ -82,7 +80,7 @@ app.get('*', (req, res) => {
     res.sendFile(`${__dirname}/client/build/index.html`);
 });
 
-const server = app.listen(port, () => {
+const server = app.listen(process.env.PORT || 3000, () => {
     console.log('You\'re listening to the smooooth sounds of port ' + port)
 });
 
