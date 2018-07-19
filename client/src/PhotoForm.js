@@ -63,7 +63,6 @@ class PhotoForm extends Component {
 	// this handles the changes in the select form
 	// by updating the genres state with each selection
 	handleChange(e) {
-		console.log('change');
 		const genresArr = this.state.genres;
 		genresArr.push(e.target.value)
 		this.setState({genres: genresArr}, () => {
@@ -93,7 +92,6 @@ class PhotoForm extends Component {
 
 		// Calling Spotify to get our playlist
 		var spotifyToken = localStorage.getItem('spotifyToken');
-		console.log('###TOKEN', spotifyToken)
 		// Jay Magic...
 		axios.defaults.headers.common['Authorization'] = "Bearer " + spotifyToken;
 		  axios.get(`https://api.spotify.com/v1/recommendations?limit=25&market=US&seed_genres=${genres}&target_danceability=${danceability}&target_valence=${valence}&target_energy=${energy}&mode=${mode}`)
@@ -125,9 +123,7 @@ class PhotoForm extends Component {
 				console.log(error)
 				console.log('token is ' + spotifyToken + ' ... clearing token')
 				localStorage.removeItem('spotifyToken')
-				console.log('oops, refreshing token. trying again.')
 				this.props.refreshToken();
-				console.log ('token is now ' + spotifyToken)
 			})
 	}
 
@@ -156,7 +152,6 @@ class PhotoForm extends Component {
 	    // Axios.all will run the above API call for each image in the queue
 	    axios.all(uploaders).then(() => {
 	      // ... sending the image url to the back end, waiting for color data.
-	      console.log('SHOULD BE GETTING COLORS NOW');
 	      axios.post('/cloudinary-data', {imgPublicId: imgPublicId}).then((result) => {
 	        // set colors in state
 	        const spfyAtts = this.calculateSpfyAtts(result.data.colors);
@@ -302,7 +297,6 @@ class PhotoForm extends Component {
 	}
 	
 	render() {
-		console.log('Photot:', this.state)
 		const {classes} = this.props;
 		const phototFormStyle = {
 			backgroundImage: 'url(' + sheetmusic + ')',

@@ -24,7 +24,6 @@ class AttsChart extends Component {
 		};
 
 		if(this.props.spfyAtts.length) {
-			console.log('IF', this.props)
 			return (
 				<div className="atts-chart">
 					<Doughnut data={data} legend={legendOpts}/>
@@ -32,7 +31,6 @@ class AttsChart extends Component {
 			);
 		}
 		else {
-			console.log('ELSE', this.props)
 			return '';
 		}
 	}

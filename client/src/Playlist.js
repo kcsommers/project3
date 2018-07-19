@@ -60,7 +60,6 @@ class Playlist extends Component {
   handleFaveClick(e) {
     e.preventDefault();
     axios.post('/playlist', this.state).then(playlist => {
-      console.log('SAVED PLAYLIST', playlist);
       this.setState({
         isFave: 'true',
         playlist: playlist.data,
@@ -90,9 +89,7 @@ class Playlist extends Component {
   sendPlaylistToSpotify(e) {
     let sfyUserToken = cookie.load('ACCESS_TOKEN');
     if (!sfyUserToken) {
-      console.log("NO SFYTOKEN");
       // change this URL in production
-      console.log('no spotify cookie found');
       var spotifyLoginWindow = window.open('http://localhost:3000/spotifylogin/', "width=400, height=600");
     } else {
     sfyUserToken = cookie.load('ACCESS_TOKEN');
@@ -127,7 +124,6 @@ class Playlist extends Component {
 
   toggleUpdateForm(e) {
     e.preventDefault();
-    console.log("You clicked the update form button!");
     this.setState({ updateForm: !this.state.updateForm });
   }
 

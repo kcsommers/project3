@@ -77,7 +77,6 @@ class App extends Component {
     if (!spotifyToken || spotifyToken == 'undefined') {
       // There was no token
       // clear out anything weird that might be there
-      console.log('no sfy token found')
       localStorage.removeItem('spotifyToken')
       this.setState({
         spotifyToken: '',

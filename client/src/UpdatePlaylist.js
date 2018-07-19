@@ -42,8 +42,6 @@ class UpdatePlaylist extends Component {
       updateForm: this.props.updateForm,
       redirect: false
     }
-    console.log(this.state.playlist._id);
-    console.log(this.state.updateForm);
 
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleNameChange = this.handleNameChange.bind(this)
@@ -61,7 +59,6 @@ class UpdatePlaylist extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     const url = '/playlist/' + this.state.playlist._id;
-    console.log("Updating Playlist for " + url);
     axios.put(url, {
       name: this.state.name,
       description: this.state.description,
@@ -76,24 +73,15 @@ class UpdatePlaylist extends Component {
   }
 
   handleNameChange = (e) => {
-    console.log("the name is a-changing");
-    this.setState({ name: e.target.value }), () => {
-      console.log("changes lifted to state");
-    }
+    this.setState({ name: e.target.value });
   }
 
   handleDescriptionChange = (e) => {
-    console.log("the description is a-changing");
-    this.setState({ description: e.target.value }), () => {
-      console.log("changes lifted to state");
-    }
+    this.setState({ description: e.target.value });
   }
 
   handleTagChange = (e) => {
-    console.log("the tag is a-changing");
-    this.setState({ tags: e.target.value }), () => {
-      console.log("changes lifted to state");
-    }
+    this.setState({ tags: e.target.value });
   }
 
   render() {
