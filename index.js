@@ -16,7 +16,7 @@ const app = express();
 app.use(bp.json({ limit: '50mb' }));
 app.use(bp.urlencoded({ extended: false, limit: '50mb' }));
 
-mongoose.connect('mongodb://localhost/moodMusic');
+mongoose.connect(process.env.MONGODB_URI, {useMongoClient: true});
 
 //ADDED config cloudinary (want to add to route once created)
 cloudinary.config({

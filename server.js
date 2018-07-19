@@ -42,6 +42,10 @@ app.get('/callback', function(req, res) {
   })
 })
 
+app.get('*', function(req, res) {
+  res.sendFile(__dirname + '/client/build/index.html'));
+});
+
 
 let port = 8888
 console.log(`Listening on port ${port}. Go /login to initiate authentication flow.`)
