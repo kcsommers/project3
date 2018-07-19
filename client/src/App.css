@@ -19,7 +19,6 @@ u {
   margin-left: 0.5em;
   padding: 0.05em 0.3em;
   font-size: 1.4em;
-  border-radius: 0.5em;
   transition: all 0.5s;
 }
 
@@ -32,15 +31,10 @@ u {
   font-family: 'Monoton', cursive;
   color: rgb(21, 23, 22);
   font-size: 5em;
-  <<<<<<< HEAD
-  /* background: rgb(48, 93, 121); */
-  background: rgb(11, 82, 79);
-  margin-top: 0;
-  margin-bottom: 0;
-  ======= background: #607D8B;
-  margin-top: 0;
-  margin-bottom: 0;
-  >>>>>>> a44b753aad341b8f91644132c4310b4b256dfaca font-weight: lighter;
+  background: #607D8B;
+  margin-top: 0em;
+  margin-bottom: 0em;
+  font-weight: lighter;
 }
 
 .auth {
@@ -59,11 +53,6 @@ u {
   background: none !important;
 }
 
-
-.root {
-  Background-image: url('./blackdots.jpeg');
-}
-
 .h1-test {
   color: white;
 }
@@ -72,20 +61,22 @@ u {
   font-size: 3em;
 }
 
-/*NEED TO FIX ADD CHANGE COLORS */
 .hello {
-font-size: 2em;
-position: relative;
-color: white;
+  font-size: 2em;
+  position: relative;
+  color: white;
 }
 
-.playlist-box {
+.saved-text {
+  font-size: 2em;
+}
+
+.playlist-box, .paper {
   padding-top: 2em;
 }
 
-.paper {
-  padding-top: 2em;
-}
+
+
 
 #home-page {
   min-height: 100vh;
@@ -94,7 +85,6 @@ color: white;
 
 #description {
   background: rgba(39, 17, 163, .5);
-  /* background: rgba(124, 123, 185, .5); */
   font-size: 1em;
   color: black;
 }
@@ -102,11 +92,11 @@ color: white;
 #sample-photo {
   max-width: 60vw;
   margin-top: 3em;
+  padding-bottom: 5em;
 }
 
 #page-title {
   color: white !important;
-  /* color: rgb(32, 145, 152) !important; */
   font-size: 3em;
   text-align: left;
   font-family: 'Monoton', cursive;
@@ -122,7 +112,7 @@ color: white;
 }
 
 
-#auth-wrapper {
+#auth-wrapper, #update-page {
 Background-image: url('./sheetmusic.jpeg');
 Background-size: cover;
 Background-position: center center;
@@ -132,11 +122,9 @@ Bottom: 0;
 Height: 100vh;
 }
 
-
 /*********************************************************
               UPLOAD PHOTO PAGE
 *********************************************************/
-
 .show-dropzone {
   display: flex;
   justify-content: center;
@@ -188,11 +176,12 @@ Height: 100vh;
   flex: 0.6;
 }
 
-.colorChart-container, .attsChart-container {
+.attsChart-container,
+.colorChart-container {
   flex: 1;
 }
 
-.select-genre select{
+.select-genre select {
   display: block;
   width: 300px;
   font-size: 1.3em;
@@ -214,18 +203,12 @@ Height: 100vh;
   outline: none;
   margin: 1em 0;
 }
-
-
 /*********************************************************
               PLAYLIST PAGE
 *********************************************************/
-
 .playlist-grid {
   display: grid;
-  grid-template-areas: "playlist-heading playlist-heading"
-                       "playlist-image playlist-tracks"
-                       "playlist-colorChart playlist-tracks"
-                       "playlist-attsChart playlist-tracks";
+  grid-template-areas: "playlist-heading playlist-heading" "playlist-image playlist-tracks" "playlist-colorChart playlist-tracks" "playlist-attsChart playlist-tracks";
   grid-template-columns: 32em auto;
   grid-template-rows: auto auto auto;
   width: 100%;
@@ -241,7 +224,7 @@ Height: 100vh;
 }
 
 .playlist-heading {
-  grid-area: playlist-heading
+  grid-area: playlist-heading;
 }
 
 .playlist-image {
@@ -250,7 +233,7 @@ Height: 100vh;
 
 .playlist-image img {
   display: block;
-  margin: 0 auto 1em auto;
+  margin: 0 auto 1em;
   border: 2px solid #fff;
 }
 
@@ -278,7 +261,10 @@ Height: 100vh;
   margin-top: 1em;
 }
 
-.valenceP, .energyP, .danceabilityP, .modeP {
+.danceabilityP,
+.energyP,
+.modeP,
+.valenceP {
   width: 70%;
   margin: 0.5em auto;
   padding: 0.4em 0;
@@ -302,5 +288,3 @@ Height: 100vh;
 .modeP {
   background-color: #e0e2e2;
 }
-
-
