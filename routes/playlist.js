@@ -24,7 +24,6 @@ router.post('/', (req, res) => {
 			console.log('Error creating playlist', err)
 		}
 		else {
-			console.log('SUCCESS creating playlist!', playlist.userID)
 			res.json(playlist);
 		}
 	})
@@ -57,7 +56,6 @@ router.get('/user/:userID', (req, res) => {
 
 // put /playlist/:id - update a user's playlist
 router.put('/:id', (req, res) => {
-	console.log('Hit the PUT user playlist route');
 	Playlist.findByIdAndUpdate({_id: req.params.id}, {
 		name: req.body.name, 
 		description: req.body.description, 
@@ -67,15 +65,12 @@ router.put('/:id', (req, res) => {
 			console.log("Error finding playlist", err);
 		} else {
 			res.json(playlist);
-			console.log(playlist + " sent");
-			
 		}
 	})
 });
 
 // delete /playlist/:id - delete a user's playlist
 router.delete('/:id', (req, res) => {
-	console.log('HIT DELET ROUTE');
 	Playlist.remove({_id: req.params.id}, (err, result) => {
 		if(err) {
 			console.log('Error removing playlist');

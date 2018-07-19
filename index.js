@@ -36,7 +36,6 @@ app.use('/locked', expressJWT({ secret: process.env.JWT_SECRET }).unless({ metho
 let redirect_uri = 'http://localhost:3000/callback'
 
 app.get('/spotifylogin', function(req, res) {
-  console.log('hit the sfy login route ... should redirect')
   res.redirect('https://accounts.spotify.com/authorize?' +
     querystring.stringify({
       response_type: 'code',
@@ -72,7 +71,6 @@ app.get('/callback', function(req, res) {
 
 //creating the test route
 app.post('/cloudinary-data', function (req, res) {
-    console.log('HIT CLOUD_DATA POST ROUTE')
     //NEED name delete 'something'
     cloudinary.v2.api.resource(req.body.imgPublicId, { colors: true },
         function (error, result) {
@@ -81,7 +79,6 @@ app.post('/cloudinary-data', function (req, res) {
 });
 
 app.get('*', (req, res) => {
-    console.log('wildcard route hit')
     res.sendFile(`${__dirname}/client/build/index.html`);
 });
 

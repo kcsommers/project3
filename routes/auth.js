@@ -27,7 +27,6 @@ router.post('/signup', (req,res) => {
       }, function(err, user) {
         // check for db errs
         if (err) {
-          console.log("We got an error creating the user")
           console.log(err);
           res.status(401).json({
             error: true,
@@ -35,7 +34,6 @@ router.post('/signup', (req,res) => {
           });
         } else {
           // log them in (sign a new token)
-          console.log('><><>< JUST ABOUT TO SIGN THE TOKEN ><><><')
           var token = jwt.sign(user.toObject(), process.env.JWT_SECRET, {
             expiresIn: 60 * 60 * 24
           })
@@ -112,7 +110,6 @@ router.post('/me/from/token', (req,res) => {
 })
 
 router.post('/get/spotify/token',  (req, res) => {
-  console.log('trying to get a token from spotify')
   var options = {
       url: 'https://accounts.spotify.com/api/token',
       headers: {
@@ -123,7 +120,6 @@ router.post('/get/spotify/token',  (req, res) => {
       },
     json: true};
     request.post(options, function(error, response, body) {
-      console.log(body);
       res.json(body);
   });
 })
