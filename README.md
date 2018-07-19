@@ -44,7 +44,11 @@ User Stories:
 - Chart.JS
 - Spotify API
 - Cloudinary API
+- JWT and bcrypt
 
+##### Additional Node Modules:
+ - React-Dropzone
+ - React-Responsive-Modal
 
 ## Project Timeline
 
@@ -88,8 +92,6 @@ We used a trello board to keep track of tasks.
 
 ![All Saved Music](SongManagement–Music.jpg)
 
->>>>>>> a78aa0db739f075e89ae3b186ee009317b56b521
-
 ##### Organization
 - We used a trello board to keep track of tasks.
 - We used slack a lot to communicate and send alerts for merging, etc.
@@ -99,6 +101,20 @@ Jay put a lot of work into getting the Spotify API hooked up to our boilerplate 
 Kacy created logic for taking the colors from the cloudinary API and generating "moods" that would correspond to songs pulled from Spotify.
 Eva got the Cloudinary API connected with an upload box component.
 Genevieve helped with a little bit of everything, especially when it came to writing the React components to tie everything together.
+
+##### Authenticating With Spotify
+
+Spotify’s oAuth process looked daunting at first—the site uses three different authorization flows, and we needed two of them for our app.
+
+First, we needed client-level authorization so anyone could see a playlist when they uploaded a photo. That was the easy part: we send Spotify our app’s key and secret (which has to be sent on the back end for security reasons, and it has to be a key:value pair converted to base64 for reasons that aren’t entirely clear!), and Spotify sends back a token we can use to make API requests. We jumped through these hoops pretty quickly.
+
+Spotify’s recommendation engine takes the values we give it for music features like valence(‘happiness’), danceability, and mode(major or minor key), and returns a list of songs. We can render this on the page and show it to the user—they never have to sign into their Spotify account.
+
+But when the user wants to SAVE a playlist to Spotify, that requires a second authorization flow. To make this work, we had to set up a separate server that handles a redirect to Spotify’s user login page. Once the user logs in, a callback route on the server sends us an access key, which we store in a cookie.
+
+The biggest problem with this is that we were building a React app—redirecting to Spotify and then having Spotify redirect back to the root of our app was going to cause a headache for the user. We tried a lot of different ways of saving the state they were in before they authenticated, so we could send them right back to their playlist page—none of them worked, because the redirect would cause the page to refresh, wiping out our app’s state and starting from scratch. 
+
+Instead, we decided to open the Spotify login page in a different window. That’s fine, except that our server doesn’t have any way to run client-side code to close a browser window. To solve that, we had the server send back an HTML file with a script tag and one line of code: window.close(). It’s hilarious, but it solves the problem.
 
 ##### Testing/Debugging:
 - We tested and debugged throughout the whole process
@@ -129,3 +145,6 @@ Genevieve helped with a little bit of everything, especially when it came to wri
 
 This project would be very useful as a mobile app, and still has a long way to go in that regard. Ideally it could become something of an instagram and spotify hybrid, accessing the users camera through, playing the music without leaving it, and allowing users to follow each other and have a feed. Along with these mobile improvements, we hope to be able to continue enhancing the color to mood logic as well.
 
+###### Acknowledgements: 
+
+Thanks to David and MPJ from the DevTips YouTube Channel for their great explanation of Spotify oAuth and their server template code. Thanks also to Bilal Budhani of CodeInfuse for his tutorial on uploading to Cloudinary with react-dropzone. 
