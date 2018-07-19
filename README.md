@@ -6,6 +6,7 @@
 
 ## Project Management Tools
 ![Trello Board Screen Shot](trelloBoard.jpg)
+
 ##### Slack
 ![Slack Screen Shot](slackShot.jpg)
 
@@ -73,10 +74,16 @@ User Stories:
 
 ![Color/Mood Results](Color-MoodResults.jpg)
 
+
 ![Music Results](MusicResults.jpg)
 
 ## Building Phase
 After making sure that we were able to get the data we needed back from the spotify and cloudinary API's, the next major step was to create logic for converting the image colors into mood attributes. This was done by converting the HEX colors receieved from cloudinary to HSL, using a handy node module. Once the hue, saturation and lightness were available, it was much easier to divide the color spectrum. Using google images, a few articles and some arbitrary gut feelings, the hues were assigned a value of valence, energy, danceability and mode (major or minor) on a scale of 1 to 5. The less saturation the color had, the less danceability, and the less lightness, the less energy. These scores were then divided by the total possible score to get a percentage to send to spotify.
+
+Jay put a lot of work into getting the Spotify API hooked up to our boilerplate site. He was also able to add on extra features related to Spotify later in our building phase.
+Kacy created logic for taking the colors from the cloudinary API and generating "moods" that would correspond to songs pulled from Spotify.
+Eva got the Cloudinary API connected with an upload box component.
+Genevieve helped with a little bit of everything, especially when it came to writing the React components to tie everything together.
 
 ![Create Playlist](SongManagement-CreatePlaylist.jpg)
 
@@ -84,9 +91,6 @@ After making sure that we were able to get the data we needed back from the spot
 ![New Song](SongManagement-NewSong.jpg)
 
 ## Testing/Debugging:
-
-## Organization
-We used a trello board to keep track of tasks.
 
 ![Edit Playlist](SongManagementâ€“EditPlaylist.jpg)
 
@@ -96,11 +100,6 @@ We used a trello board to keep track of tasks.
 - We used a trello board to keep track of tasks.
 - We used slack a lot to communicate and send alerts for merging, etc.
 
-##### Building Phase Summary
-Jay put a lot of work into getting the Spotify API hooked up to our boilerplate site. He was also able to add on extra features related to Spotify later in our building phase.
-Kacy created logic for taking the colors from the cloudinary API and generating "moods" that would correspond to songs pulled from Spotify.
-Eva got the Cloudinary API connected with an upload box component.
-Genevieve helped with a little bit of everything, especially when it came to writing the React components to tie everything together.
 
 ##### Authenticating With Spotify
 
@@ -120,7 +119,6 @@ Instead, we decided to open the Spotify login page in a different window. Thatâ€
 - We tested and debugged throughout the whole process
 - Had a bugs section on our trello board so items could be added there
 
-
 ## Routes
 
 ## auth routes
@@ -139,8 +137,6 @@ Instead, we decided to open the Spotify login page in a different window. Thatâ€
 | PUT 	 | /playlist/:id			|
 | DELETE | /playlist/:id			|
 
-
-â€¨
 ## Next Steps and Future Improvements
 
 This project would be very useful as a mobile app, and still has a long way to go in that regard. Ideally it could become something of an instagram and spotify hybrid, accessing the users camera through, playing the music without leaving it, and allowing users to follow each other and have a feed. Along with these mobile improvements, we hope to be able to continue enhancing the color to mood logic as well.
@@ -148,3 +144,8 @@ This project would be very useful as a mobile app, and still has a long way to g
 ###### Acknowledgements: 
 
 Thanks to David and MPJ from the DevTips YouTube Channel for their great explanation of Spotify oAuth and their server template code. Thanks also to Bilal Budhani of CodeInfuse for his tutorial on uploading to Cloudinary with react-dropzone. 
+
+###### Acknowledgements: 
+
+Thanks to David and MPJ from the DevTips YouTube Channel for their great explanation of Spotify oAuth and their server template code. Thanks also to Bilal Budhani of CodeInfuse for his tutorial on uploading to Cloudinary with react-dropzone. 
+
