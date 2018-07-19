@@ -32,8 +32,13 @@ u {
   color: rgb(21, 23, 22);
   font-size: 5em;
   background: #607D8B;
+<<<<<<< HEAD
+  margin-top: 0;
+  margin-bottom: 0;
+=======
   margin-top: 0em;
   margin-bottom: 0em;
+>>>>>>> beb1f1185a7f995ebd528b5a2c096fcb8f8d25da
   font-weight: lighter;
 }
 
