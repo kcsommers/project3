@@ -81,7 +81,7 @@ app.get('*', (req, res) => {
 });
 
 const server = app.listen(process.env.PORT || 3000, () => {
-    console.log('You\'re listening to the smooooth sounds of port ' + port)
+    console.log('You\'re listening to the smooooth sounds of port ' + process.env.PORT)
 });
 
 module.exports = server;
