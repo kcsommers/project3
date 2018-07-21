@@ -90,7 +90,7 @@ class Playlist extends Component {
     let sfyUserToken = cookie.load('ACCESS_TOKEN');
     if (!sfyUserToken) {
       // change this URL in production
-      var spotifyLoginWindow = window.open('http://localhost:3000/spotifylogin/', "width=400, height=600");
+      var spotifyLoginWindow = window.open('https://moodsic11.herokuapp.com/spotifylogin/', "width=400, height=600");
     } else {
     sfyUserToken = cookie.load('ACCESS_TOKEN');
     if (this.state.playlist) {
