@@ -31,7 +31,7 @@ app.use('/auth', auth);
 app.use('/playlist', playlist);
 app.use('/locked', expressJWT({ secret: process.env.JWT_SECRET }).unless({ method: 'POST' }), locked);
 
-let redirect_uri = 'http://moodsic11/callback/'
+let redirect_uri = 'https://moodsic11.herokuapp.com/callback/'
 
 app.get('/spotifylogin', function(req, res) {
   res.redirect('https://accounts.spotify.com/authorize?' +
