@@ -5,11 +5,11 @@ import Button from '@material-ui/core/Button';
 import ColorChart from './ColorChart';
 import AttsChart from './AttsChart';
 import {Link, withRouter}  from 'react-router-dom';
-import cookie from 'react-cookie'
+import cookie from 'react-cookie';
 import UpdatePlaylist from './UpdatePlaylist';
 import './App.css';
 import { withStyles } from '@material-ui/core/styles';
-import SpotifyModal from './SpotifyModal'
+import SpotifyModal from './SpotifyModal';
 
 const styles = theme => ({
   root: {
@@ -158,7 +158,7 @@ class Playlist extends Component {
       background: 'linear-gradient(to bottom right, '+ color1 + ', ' + color2 + ', ' + color3 + ')',
       backgroundSize: 'cover',
       backgroundPosition: 'fixed',
-      padding: '4em 5em'
+      padding: '5vh 4vw'
     }
 
     if (this.state.updateForm === true) {
@@ -187,7 +187,7 @@ class Playlist extends Component {
               <p>Description: {description}</p>
             </div>
             <div className="playlist-image">
-              <img src={imgUrl} width="400px" alt="playlist-image" />
+              <img src={imgUrl} alt="playlist-image" className="playlist-image-large" />
               <Link className="profile-button" to="/profile"><Button className="btn" variant="contained" color="primary">Back to Profile</Button></Link>
             </div>
             <div className="playlist-tracks">
